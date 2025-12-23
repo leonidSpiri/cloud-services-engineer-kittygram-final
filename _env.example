@@ -1,3 +1,19 @@
+# PostgreSQL
 POSTGRES_DB=kittygram
 POSTGRES_USER=kittygram_user
 POSTGRES_PASSWORD=kittygram_password
+
+# Django DB connection
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=kittygram
+DB_HOST=postgres
+DB_PORT=5432
+
+# Django settings
+SECRET_KEY=change-me
+DEBUG=False
+ALLOWED_HOSTS=127.0.0.1,localhost
+
+# Compose helpers
+DOCKERHUB_USERNAME=your_dockerhub_username
+GATEWAY_PORT=9000
