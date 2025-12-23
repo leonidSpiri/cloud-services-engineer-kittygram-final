@@ -1,0 +1,16 @@
+name: Kittygram CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: docker.io
+
+jobs:
+  lint_and_smoke:
+
+  build_and_push:
+
+  deploy:
