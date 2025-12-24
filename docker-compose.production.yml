@@ -14,7 +14,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - static:/app/collected_static
+      - static:/app/backend_static
       - media:/app/media
     restart: always
 
