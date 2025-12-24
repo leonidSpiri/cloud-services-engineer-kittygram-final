@@ -28,8 +28,8 @@ services:
     ports:
       - "${GATEWAY_PORT:-9000}:80"
     volumes:
-      - static:/backend_static
-      - media:/media
+      - static:/var/html/collected_static/
+      - media:/var/html/media/
     depends_on:
       - backend
       - frontend
