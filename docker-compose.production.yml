@@ -14,8 +14,8 @@ services:
     depends_on:
       - postgres
     volumes:
-      - static:/app/collected_static
-      - media:/app/media
+      - static:/app/static
+      - media:/media
     restart: always
 
   frontend:
@@ -30,7 +30,7 @@ services:
     ports:
       - "${GATEWAY_PORT:-9000}:80"
     volumes:
-      - static:/static
+      - static:/usr/share/nginx/html
       - media:/media
     depends_on:
       - backend
