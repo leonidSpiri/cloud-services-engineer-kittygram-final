@@ -19,7 +19,7 @@ services:
   frontend:
     image: ${DOCKERHUB_USERNAME}/kittygram_frontend:latest
     volumes:
-      - static:/static
+      - static:/usr/share/nginx/html
     depends_on:
       - backend
 
