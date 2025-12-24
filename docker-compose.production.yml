@@ -30,7 +30,7 @@ services:
     ports:
       - "${GATEWAY_PORT:-9000}:80"
     volumes:
-      - static:/static
+      - static:/app/backend_static
       - media:/media
     depends_on:
       - backend
