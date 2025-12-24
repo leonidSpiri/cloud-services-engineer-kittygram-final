@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -37,7 +36,8 @@ class Migration(migrations.Migration):
                 ('birth_year', models.IntegerField()),
                 ('image', models.ImageField(default=None, null=True, upload_to='cats/images/')),
                 ('achievements', models.ManyToManyField(through='cats.AchievementCat', to='cats.Achievement')),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='cats', to=settings.AUTH_USER_MODEL)),
+                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='cats',
+                                            to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(

@@ -20,7 +20,7 @@ DEBUG = _env_bool("DEBUG", default=False)
 
 allowed_hosts_raw = os.getenv("ALLOWED_HOSTS", "*")
 ALLOWED_HOSTS = (
-    [h.strip() for h in allowed_hosts_raw.split(",") if h.strip()] or ["*"]
+        [h.strip() for h in allowed_hosts_raw.split(",") if h.strip()] or ["*"]
 )
 
 INSTALLED_APPS = [
@@ -66,7 +66,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
-
 DATABASES = {
     "default": {
         "ENGINE": os.getenv("DB_ENGINE", "django.db.backends.sqlite3"),
@@ -77,7 +76,6 @@ DATABASES = {
         "PORT": os.getenv("DB_PORT", ""),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -115,7 +113,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.getenv("STATIC_ROOT", "/app/collected_static")
