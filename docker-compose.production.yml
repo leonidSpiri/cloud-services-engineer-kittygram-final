@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:13
@@ -14,8 +12,8 @@ services:
     depends_on:
       - postgres
     volumes:
-      - static:/app/backend_static
-      - media:/app/media
+      - static:/backend_static
+      - media:/media
     restart: always
 
   frontend:
@@ -30,7 +28,7 @@ services:
     ports:
       - "${GATEWAY_PORT:-9000}:80"
     volumes:
-      - static:/app/backend_static
+      - static:/backend_static
       - media:/media
     depends_on:
       - backend
