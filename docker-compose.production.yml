@@ -32,7 +32,7 @@ services:
   gateway:
     image: ${DOCKERHUB_USERNAME}/kittygram_gateway:latest
     ports:
-      - "${GATEWAY_PORT:-9000}:9000"
+      - "${GATEWAY_PORT:-80}:80"
     volumes:
       - static:/static
       - media:/media
