@@ -18,7 +18,4 @@ COPY . .
 
 RUN mkdir -p /app/collected_static /app/media
 
-RUN chmod +x /docker-entrypoint.sh
-
-
 CMD ["gunicorn", "kittygram_backend.wsgi:application", "--bind", "0.0.0.0:8000"]
