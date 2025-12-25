@@ -5,6 +5,8 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
     restart: always
+    networks:
+      - internal_network
 
   backend:
     image: ${DOCKERHUB_USERNAME}/kittygram_backend:latest
@@ -12,30 +14,40 @@ services:
     depends_on:
       - postgres
     volumes:
-      - static:/backend_static
-      - media:/media
+      - static:/app/collected_static
+      - media:/app/media
     restart: always
+    networks:
+      - internal_network
 
   frontend:
     image: ${DOCKERHUB_USERNAME}/kittygram_frontend:latest
     volumes:
-      - static:/usr/share/nginx/html
+      - static:/static
     depends_on:
       - backend
+    networks:
+      - internal_network
 
   gateway:
     image: ${DOCKERHUB_USERNAME}/kittygram_gateway:latest
     ports:
-      - "${GATEWAY_PORT:-9000}:9000"
+      - "80:80"
     volumes:
-      - static:/var/html/collected_static/
-      - media:/var/html/media/
+      - static:/static
+      - media:/media
     depends_on:
       - backend
       - frontend
     restart: always
+    networks:
+      - internal_network
 
 volumes:
   pg_data:
   static:
   media:
+
+networks:
+  internal_network:
+    driver: bridge
