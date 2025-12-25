@@ -18,7 +18,6 @@ COPY . .
 
 RUN mkdir -p /app/collected_static /app/media
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 
