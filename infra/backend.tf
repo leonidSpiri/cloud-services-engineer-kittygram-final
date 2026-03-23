@@ -13,10 +13,4 @@ terraform {
     skip_requesting_account_id  = true
     skip_s3_checksum            = true
   }
-  required_providers {
-    yandex = {
-      source  = "yandex-cloud/yandex"
-      version = "0.167.0"
-    }
-  }
 }
